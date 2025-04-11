@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>CinemaBuzz</title> 
+  <link rel="stylesheet" href="{% static 'index.css' %}"> 
+</head> 
+
+<body>
+  <header>
+    <div class="navbar">
+      <div class="logo">
+        <img src="{% static 'Images/logo.svg' %}" alt="logo">
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#">HOME</a></li>
+          <li><a href="#">PRICING</a></li>
+          <li><a href="#">MOVIES</a></li>
+          <li><a href="#">TV SHOWS</a></li>
+          <li><a href="#">REVIEWS</a></li>
+        </ul>
+      </nav>
+      <div class="search-container">
+        <form action="/" method="POST">
+          {% csrf_token %}
+          <input type="text" class="search-input" name="movie" id="movie" placeholder="Search...">
+        </form>
+      </div>
+      <button class="search-btn">
+        <img src="{% static 'Images/search-icon.svg' %}" alt="Search">
+      </button>
+      <button class="join-btn"><a href="{% url 'home' %}">Join Now</a></button>
+      <button class="login-btn">
+        <img src="{% static 'Images/login-icon.svg' %}" alt="login-icon">
+      </button>
+    </div>
+  </header>
+
+  <div class="flash-messages">
+    {% if messages %}
+      <ul>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+
+  <section class="banner"> 
+    <img id="banner-image" src="https://m.media-amazon.com/images/M/MV5BYzYyN2FiZmUtYWYzMy00MzViLWJkZTMtOGY1ZjgzNWMwN2YxXkEyXkFqcGc@._V1_.jpg" alt="Banner">
+    <div class="banner-content">
+      <h1 id="Movie_Title">Movie BlockBuster</h1>
+      <div class="description">
+        <p id="mv-desc">OPPENHEIMER (2023) is a biographical thriller about J. Robert Oppenheimer, the physicist who led the creation of the atomic bomb, exploring his genius, moral struggles, and political downfall.</p>
+      </div>
+      <button class="button">Watch Now</button>
+      <button class="more-details">More Details</button>
+    </div>
+  </section>
+
+  <section class="categories">
+    <div class="category"><h1>HIDDEN GEMS</h1> <img src="{% static 'Images/stars.svg' %}" alt="stars"></div>
+    <div class="category"><h1>FEATURED NEWS</h1> <img src="{% static 'Images/stars.svg' %}" alt="stars"></div>
+    <div class="category"><h1>AUDIENCE PICKS</h1> <img src="{% static 'Images/stars.svg' %}" alt="stars"></div>
+    <div class="category"><h1>TRENDING MOVIES</h1> <img src="{% static 'Images/stars.svg' %}" alt="stars"></div>
+  </section>
+
+  <section class="top-movies">
+    <h1>Top 10 Movies</h1>
+    <div class="movie-container">
+      <div class="movie"><span class="rank">1</span><img id="1" src="{% static 'Images/exorcist.svg' %}" alt="The Exorcist"></div>
+      <div class="movie"><span class="rank">2</span><img id="2" src="{% static 'Images/friends.svg' %}" alt="Friends"></div>
+      <div class="movie"><span class="rank">3</span><img id="3" src="{% static 'Images/avengers.svg' %}" alt="Avengers"></div>
+      <div class="movie"><span class="rank">4</span><img id="4" src="{% static 'Images/squid_game.svg' %}" alt="Squid Game"></div>
+      <div class="movie"><span class="rank">5</span><img id="5" src="{% static 'Images/alice.svg' %}" alt="Alice in Borderland"></div>
+    </div>
+  </section>
+
+  <section class="latest-movies">
+    <h1>Upcoming BlockBuster</h1>
+    <div class="latest-container">
+      <div class="latest"><img id="6" src="{% static 'Images/exorcist.svg' %}" alt="The Exorcist"></div>
+      <div class="latest"><img id="7" src="{% static 'Images/friends.svg' %}" alt="Friends"></div>
+      <div class="latest"><img id="8" src="{% static 'Images/avengers.svg' %}" alt="Avengers"></div>
+      <div class="latest"><img id="9" src="{% static 'Images/squid_game.svg' %}" alt="Squid Game"></div>
+      <div class="latest"><img id="11" src="{% static 'Images/alice.svg' %}" alt="Alice in Borderland"></div>
+    </div>
+  </section>
+
+  <script src="{% static 'index.js' %}"></script>
+</body>
+</html>

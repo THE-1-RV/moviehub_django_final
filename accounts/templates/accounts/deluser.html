@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Delete account</title> 
+  <link rel="stylesheet" href="{% static 'deluser.css' %}"> 
+</head>
+<body>
+  <div class="flash-messages">
+    {% if messages %}
+    <ul>
+      {% for message in messages %}
+      <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </div>
+
+  <div class="login-container text-center">
+    <h1>Lights, Camera, Discover</h1>
+    <h2>Delete Account</h2>
+    <form action="{% url 'deluser' %}" method="POST">
+      {% csrf_token %}
+      <div class="input-group">
+        <input type="email" class="form-control" placeholder="Email" name="email" id="email" required>
+      </div>
+      <div class="input-group">
+        <input type="password" class="form-control" placeholder="Password" name="password" id="password" required>
+      </div>
+      <button type="submit" class="btn-login">Delete account</button>
+
+      <p>Don't have an account? <a href="{% url 'home' %}">Sign in</a><br>
+         Already have an account? <a href="{% url 'log' %}">Log In</a></p>
+    </form>
+  </div>
+
+  <script>
+    // Hide flash messages after 5 seconds
+    setTimeout(function() {
+      var flashMessages = document.querySelector('.flash-messages');
+      if (flashMessages) {
+        flashMessages.style.display = 'none';
+      }
+    }, 5000);
+  </script>
+</body>
+</html>
