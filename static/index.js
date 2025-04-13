@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const options = {
             method: 'GET',
             headers: {
-                'x-rapidapi-key': 'f7fa5f4e6bmsh11ab2dcaf3eb9bbp1be04bjsn67365ee606c9',
+                'x-rapidapi-key': 'b8ecd37a74msh421d9c8d2edfe9ap1eaf46jsna472dfe4056e',
                 'x-rapidapi-host': 'imdb236.p.rapidapi.com'
             }
         };
@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const options = {
             method: 'GET',
             headers: {
-                'x-rapidapi-key': 'f7fa5f4e6bmsh11ab2dcaf3eb9bbp1be04bjsn67365ee606c9',
+                'x-rapidapi-key': 'b8ecd37a74msh421d9c8d2edfe9ap1eaf46jsna472dfe4056e',
                 'x-rapidapi-host': 'imdb236.p.rapidapi.com'
             }
         };
@@ -152,7 +152,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const options = {
         method: 'GET',
         headers: {
-            'x-rapidapi-key': 'f7fa5f4e6bmsh11ab2dcaf3eb9bbp1be04bjsn67365ee606c9',
+            'x-rapidapi-key': 'b8ecd37a74msh421d9c8d2edfe9ap1eaf46jsna472dfe4056e',
             'x-rapidapi-host': 'imdb236.p.rapidapi.com'
         }
     };
@@ -177,18 +177,18 @@ document.addEventListener("DOMContentLoaded", function () {
     top10Movies();
 
 
-    async function latestReleases(){
+    async function latestReleases() {
 
-        
+
         const url = 'https://imdb236.p.rapidapi.com/imdb/upcoming-releases?countryCode=IN&type=MOVIE';
         const options = {
             method: 'GET',
             headers: {
-                'x-rapidapi-key': 'f7fa5f4e6bmsh11ab2dcaf3eb9bbp1be04bjsn67365ee606c9',
+                'x-rapidapi-key': 'b8ecd37a74msh421d9c8d2edfe9ap1eaf46jsna472dfe4056e',
                 'x-rapidapi-host': 'imdb236.p.rapidapi.com'
             }
         };
-        
+
         try {
             const response = await fetch(url, options);
             const result = await response.json();
@@ -198,13 +198,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
             for (let i = 0; i < 5; i++) {
                 let uc = document.getElementById((i + 6).toString());
-                uc.src = result[1].titles[i].primaryImage;
-                
+                uc.src = result[2].titles[i].primaryImage;
+
             }
         } catch (error) {
             console.error(error);
         }
-        
+
     }
 
     latestReleases()
