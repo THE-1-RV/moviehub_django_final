@@ -198,7 +198,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             for (let i = 0; i < 5; i++) {
                 let uc = document.getElementById((i + 6).toString());
-                uc.src = result[2].titles[i].primaryImage;
+                uc.src = result[1].titles[i].primaryImage;
 
             }
         } catch (error) {
